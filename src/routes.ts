@@ -8,8 +8,9 @@ export async function home(_req: Request, res: Response) {
     const pokemon = await Pokemon.getAll(db);
     res.render("home", { pokemon });
   } catch (error) {
-    console.log(error);
-    res.send("An error occurred, please try again later.");
+    throw error;
+    // console.log(error);
+    // res.send("An error occurred, please try again later.");
   }
 }
 
